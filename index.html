@@ -9,20 +9,60 @@
     <header>
         <h1>Act On It</h1>
     </header>
-    <nav>
-        <p>Skip to tasks</p>
+
+    <nav>Loading categories and projects...</nav>
+    <main>Loading tasks...</main>
+
+    <aside class="app-options">
+        <div class="option sort-options">
+            <p class="label">Sort order:</p>
+            <ul class="options btn-group">
+                <li><button class="on">Sort ascending</button></li>
+                <li><button>Sort descending</button></li>
+            </ul>
+        </div>
+        <div class="option filter-types">
+            <p class="label">Show types:</p>
+            <ul class="options">
+                <li class="type-norm"><button class="on">Normal</button></li>
+                <li class="type-urg"><button>Urgent</button></li>
+                <li class="type-back"><button>Backburner</button></li>
+            </ul>
+        </div>
+        <div class="option filter-status">
+            <p class="label">Show status:</p>
+            <ul class="options btn-group">
+                <li><button class="on">Unfinished</button></li>
+                <li><button>Finished</button></li>
+            </ul>
+        </div>
+        <div class="option filter-status">
+            <p class="label"><input type="checkbox" /> Group by deadline</p>
+        </div>
+        <div class="account">
+            <a href="#">
+                <img class="img-profile" src="http://placehold.it/100x100" />
+                <span class="label accessible">Account options</span>
+            </a>
+        </div>
+    </aside>
+
+    <template id="nav">
+        <p class="accessible"><a href="#tasks">Skip to tasks</a></p>
         <button class="add-category">Add a category</button>
-        <ul>
+        <ul class="categories">
             {{#each categories}}
             <li class="category">
-                <a href="#category/{{id}}">{{name}}</a>
-                <ul class="options">
-                    <li class="add-project"><button data-id="{{id}}">Add project</button></li>
-                    <li class="edit-category"><button data-id="{{id}}">Edit</button></li>
-                    <li class="duplicate-category"><button data-id="{{id}}">Duplicate</button></li>
-                    <li class="delete-category"><button data-id="{{id}}">Delete</button></li>
-                </ul>
-                <ul>
+                <div class="label">
+                    <a href="#category/{{id}}">{{name}}</a>
+                    <ul class="options">
+                        <li class="add-project"><button data-id="{{id}}">Add project</button></li>
+                        <li class="edit-category"><button data-id="{{id}}">Edit</button></li>
+                        <li class="duplicate-category"><button data-id="{{id}}">Duplicate</button></li>
+                        <li class="delete-category"><button data-id="{{id}}">Delete</button></li>
+                    </ul>
+                </div>
+                <ul class="projects">
                     {{#each projects}}
                     <li class="project">
                         <a href="#project/{{id}}">{{name}}</a>
@@ -38,13 +78,13 @@
             </li>
             {{/each}}
         </ul>
-    </nav>
-    <main>
+    </template>
+    <template id="tasks">
         {{#each task-groups}}
-        <h2>{{heading}}</h2>
+        <h2 class="task-group-heading">{{heading}}</h2>
         <ul>
             {{#each tasks}}
-            <li>
+            <li class="task task-{{typeClass}}">
                 <p>{{content}}</p>
                 <p><b>Due by:</b> {{date due-date}}</p>
 
@@ -58,35 +98,7 @@
             {{/each}}
         </ul>
         {{/each}}
-    </main>
-    <aside class="app-options">
-        <div class="option sort-options">
-            <p>Sort order:</p>
-            <ul class="options">
-                <li><button>Sort ascending</button></li>
-                <li><button>Sort descending</button></li>
-            </ul>
-        </div>
-        <div class="option filter-types">
-            <p>Show types:</p>
-            <ul class="options">
-                <li><button>Normal</button></li>
-                <li><button>Urgent</button></li>
-                <li><button>Backburner</button></li>
-            </ul>
-        </div>
-        <div class="option filter-status">
-            <p>Show status:</p>
-            <ul class="options">
-                <li><button>Unfinished</button></li>
-                <li><button>Finished</button></li>
-            </ul>
-        </div>
-        <div class="option filter-status">
-            <p><input type="checkbox" /> Group by deadline</p>
-        </div>
-    </aside>
-    
+    </template>
     <template id="edit-task">
         <form action="#task/save/{{id}}/{{parent.id}}">
             <ul class="basic-options">
@@ -111,9 +123,9 @@
                 <div class="types">
                     <p>Type:</p>
                     <ul>
-                        <li><input type="radio" name="type" /> Normal</li>
-                        <li><input type="radio" name="type" /> Urgent</li>
-                        <li><input type="radio" name="type" /> Backburner</li>
+                        <li class="type-norm on"><input type="radio" name="type" /> Normal</li>
+                        <li class="type-urg"><input type="radio" name="type" /> Urgent</li>
+                        <li class="type-back"><input type="radio" name="type" /> Backburner</li>
                     </ul>    
                 </div>
                 <button class="save-task" type="submit">Save</button>
