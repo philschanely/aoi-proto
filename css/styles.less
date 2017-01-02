@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:300,400,500');
 
 @color-dkgrey: #424242;
+@color-mdgrey: #616161;
 @color-grey: #757575;
 @color-norm: #00e5ff;
 @color-urg: #ffc400;
@@ -9,6 +10,7 @@
 @color-red: #ff5722;
 @color-ltgrey: #fefefe;
 @color-green: #00e676;
+
 
 .btn(@height:40px, @bg-color:@color-green, @color:@color-dkgrey, @border-color:transparent, @font-size:1em) {
   border-radius:@height/2;
@@ -19,6 +21,15 @@
   padding:0 @height/2;
   text-transform: uppercase;
   font-weight:300;
+  .md-shadow(1);
+  &:hover {
+    .md-shadow(4);
+  }
+}
+.md-shadow(@depth:2) {
+  box-shadow: 0 (@depth * 3 * 1px) (@depth * 3 * 2px) rgba(0,0,0,(0.12 + (4*(@depth - 1))/100)),
+              0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 .font-roboto-cond() {
   font-family: 'Roboto Condensed', sans-serif;
@@ -27,25 +38,129 @@
   font-family: 'Roboto', sans-serif;
 }
 
+a {
+  color: @color-dkgrey;
+}
+.accessible {
+  display: block;
+  height:0;
+  overflow:hidden;
+}
+.app-options {
+  background-color: @color-grey;
+  button {
+    .btn(40px, @color-grey, white, white);
+    &.on {
+      background-color: white;
+      color:@color-grey;
+    }
+  }
+  .option {
+    .label { color:white; }
+  }
+}
+
+b {
+  font-weight:500;
+}
+
 body {
   font-size:62.5%;
   .font-roboto;
   color:@color-dkgrey;
   font-weight:300;
 }
+
+.btn-group {
+  & > li button {
+    border-radius:0;
+    padding-left:10px;
+    padding-right:10px;
+  }
+  & > li:first-child button {
+    padding-left:20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  & > li:last-child button {
+    padding-right:20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+
 button {
-  .btn(50px);
+  .btn(40px);
+}
+
+.category {
+  .label {
+    font-size:2.1/1.4em;
+    font-weight:400;
+    padding-left:10px;
+    margin:15px 0 5px;
+    .font-roboto-cond;
+    &:hover {
+      background-color:@color-mdgrey;
+    }
+
+  }
+  .options {
+    display: none;
+  }
+}
+
+.filter-types {
+  button {
+    width:30px;
+    height:30px;
+    padding:0;
+    text-indent:-9999px;
+    border:none;
+    opacity:0.3;
+    &.on {
+      opacity:1;
+    }
+  }
+  .type-norm button {
+    background-color: @color-norm;
+    &.on {
+      background-color: @color-norm;
+    }
+  }
+  .type-urg button {
+    background-color: @color-urg;
+    &.on {
+      background-color: @color-urg;
+    }
+  }
+  .type-back button {
+    background-color: @color-back;
+    &.on {
+      background-color: @color-back;
+    }
+  }
 }
 
 h1 {
+  padding:10px;
   font-size:3.7em;
   .font-roboto-cond;
   color: @color-dkgrey;
   font-weight:400;
+  &:before {
+    display: block;
+    content:"";
+    width:20px;
+    height:20px;
+    background-color: white;
+    float: left;
+    margin-right:10px;
+  }
 }
 
 h2, .h2 {
-  font-size:2.3em;
+  font-size:2.1em;
   font-weight:500;
 }
 
@@ -54,10 +169,63 @@ h3, .h3 {
   font-weight:500;
 }
 
+header {
+  background-color:@color-norm;
+}
+
 li, p {
   font-size:1.4em;
   line-height:2/1.4em;
+  font-weight:300;
   li, p {
     font-size:1em;
   }
+}
+
+nav {
+  background-color:@color-dkgrey;
+  color:white;
+  padding:10px;
+  a {
+    color:white;
+    text-decoration: none;
+  }
+}
+
+.img-profile {
+  border-radius:50%;
+}
+
+.task {
+  padding:10px;
+  margin:0 10px 10px;
+  .md-shadow(2);
+  &.task-norm {
+    background-color: @color-norm;
+  }
+  &.task-urg {
+    background-color: @color-urg;
+  }
+  &.task-back {
+    background-color: @color-back;
+  }
+  &:hover {
+    .md-shadow(4);
+  }
+}
+
+.task-group-heading {
+  margin:20px 10px 5px;
+}
+
+.project {
+  padding:3px 10px 3px 20px;
+  margin-bottom:1px;
+  &:hover {
+    background-color:@color-mdgrey;
+  }
+}
+
+.projects {
+  margin-left:10px;
 }

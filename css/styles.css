@@ -1,30 +1,140 @@
 @import url("meyer-reset.css");
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:300,400,500');
+a {
+  color: #424242;
+}
+.accessible {
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+.app-options {
+  background-color: #757575;
+}
+.app-options button {
+  border-radius: 20px;
+  height: 40px;
+  background-color: #757575;
+  border: 1px solid white;
+  color: white;
+  padding: 0 20px;
+  text-transform: uppercase;
+  font-weight: 300;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.app-options button:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.app-options button.on {
+  background-color: white;
+  color: #757575;
+}
+.app-options .option .label {
+  color: white;
+}
+b {
+  font-weight: 500;
+}
 body {
   font-size: 62.5%;
   font-family: 'Roboto', sans-serif;
   color: #424242;
   font-weight: 300;
 }
+.btn-group > li button {
+  border-radius: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.btn-group > li:first-child button {
+  padding-left: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.btn-group > li:last-child button {
+  padding-right: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
 button {
-  border-radius: 25px;
-  height: 50px;
+  border-radius: 20px;
+  height: 40px;
   background-color: #00e676;
   border: 1px solid transparent;
   color: #424242;
-  padding: 0 25px;
+  padding: 0 20px;
   text-transform: uppercase;
   font-weight: 300;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+button:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.category .label {
+  font-size: 1.5em;
+  font-weight: 400;
+  padding-left: 10px;
+  margin: 15px 0 5px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.category .label:hover {
+  background-color: #616161;
+}
+.category .options {
+  display: none;
+}
+.filter-types button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  text-indent: -9999px;
+  border: none;
+  opacity: 0.3;
+}
+.filter-types button.on {
+  opacity: 1;
+}
+.filter-types .type-norm button {
+  background-color: #00e5ff;
+}
+.filter-types .type-norm button.on {
+  background-color: #00e5ff;
+}
+.filter-types .type-urg button {
+  background-color: #ffc400;
+}
+.filter-types .type-urg button.on {
+  background-color: #ffc400;
+}
+.filter-types .type-back button {
+  background-color: #e0e0e0;
+}
+.filter-types .type-back button.on {
+  background-color: #e0e0e0;
 }
 h1 {
+  padding: 10px;
   font-size: 3.7em;
   font-family: 'Roboto Condensed', sans-serif;
   color: #424242;
   font-weight: 400;
 }
+h1:before {
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  float: left;
+  margin-right: 10px;
+}
 h2,
 .h2 {
-  font-size: 2.3em;
+  font-size: 2.1em;
   font-weight: 500;
 }
 h3,
@@ -32,14 +142,62 @@ h3,
   font-size: 1.4em;
   font-weight: 500;
 }
+header {
+  background-color: #00e5ff;
+}
 li,
 p {
   font-size: 1.4em;
   line-height: 1.42857143em;
+  font-weight: 300;
 }
 li li,
 p li,
 li p,
 p p {
   font-size: 1em;
+}
+nav {
+  background-color: #424242;
+  color: white;
+  padding: 10px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+}
+.img-profile {
+  border-radius: 50%;
+}
+.task {
+  padding: 10px;
+  margin: 0 10px 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.task.task-norm {
+  background-color: #00e5ff;
+}
+.task.task-urg {
+  background-color: #ffc400;
+}
+.task.task-back {
+  background-color: #e0e0e0;
+}
+.task:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.task-group-heading {
+  margin: 20px 10px 5px;
+}
+.project {
+  padding: 3px 10px 3px 20px;
+  margin-bottom: 1px;
+}
+.project:hover {
+  background-color: #616161;
+}
+.projects {
+  margin-left: 10px;
 }
