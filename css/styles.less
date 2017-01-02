@@ -48,6 +48,7 @@ a {
 }
 .app-options {
   background-color: @color-grey;
+  padding:10px; 
   button {
     .btn(40px, @color-grey, white, white);
     &.on {
@@ -97,8 +98,8 @@ button {
   .label {
     font-size:2.1/1.4em;
     font-weight:400;
-    padding-left:10px;
-    margin:15px 0 5px;
+    padding:5px 0 5px 10px;
+    margin:15px 0 0;
     .font-roboto-cond;
     &:hover {
       background-color:@color-mdgrey;
@@ -173,6 +174,10 @@ header {
   background-color:@color-norm;
 }
 
+.img-profile {
+  border-radius:50%;
+}
+
 li, p {
   font-size:1.4em;
   line-height:2/1.4em;
@@ -192,9 +197,15 @@ nav {
   }
 }
 
-.img-profile {
-  border-radius:50%;
+.project {
+  padding:3px 10px 3px 30px;
+  margin-bottom:1px;
+  &:hover {
+    background-color:@color-mdgrey;
+  }
 }
+
+.projects {}
 
 .task {
   padding:10px;
@@ -216,16 +227,4 @@ nav {
 
 .task-group-heading {
   margin:20px 10px 5px;
-}
-
-.project {
-  padding:3px 10px 3px 20px;
-  margin-bottom:1px;
-  &:hover {
-    background-color:@color-mdgrey;
-  }
-}
-
-.projects {
-  margin-left:10px;
 }

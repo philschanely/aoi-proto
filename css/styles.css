@@ -10,6 +10,7 @@ a {
 }
 .app-options {
   background-color: #757575;
+  padding: 10px;
 }
 .app-options button {
   border-radius: 20px;
@@ -77,8 +78,8 @@ button:hover {
 .category .label {
   font-size: 1.5em;
   font-weight: 400;
-  padding-left: 10px;
-  margin: 15px 0 5px;
+  padding: 5px 0 5px 10px;
+  margin: 15px 0 0;
   font-family: 'Roboto Condensed', sans-serif;
 }
 .category .label:hover {
@@ -145,6 +146,9 @@ h3,
 header {
   background-color: #00e5ff;
 }
+.img-profile {
+  border-radius: 50%;
+}
 li,
 p {
   font-size: 1.4em;
@@ -166,8 +170,12 @@ nav a {
   color: white;
   text-decoration: none;
 }
-.img-profile {
-  border-radius: 50%;
+.project {
+  padding: 3px 10px 3px 30px;
+  margin-bottom: 1px;
+}
+.project:hover {
+  background-color: #616161;
 }
 .task {
   padding: 10px;
@@ -190,14 +198,4 @@ nav a {
 }
 .task-group-heading {
   margin: 20px 10px 5px;
-}
-.project {
-  padding: 3px 10px 3px 20px;
-  margin-bottom: 1px;
-}
-.project:hover {
-  background-color: #616161;
-}
-.projects {
-  margin-left: 10px;
 }
