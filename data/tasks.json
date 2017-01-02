@@ -1,0 +1,63 @@
+{
+  "task-groups": [
+    {
+      "heading": "Due today",
+      "tasks": [
+        {
+          "content": "Finish Act On It prototype.",
+          "due-date": "2017-01-02",
+          "complete": false,
+          "type": "Normal",
+          "typeClass": "norm"
+        },{
+          "content": "Look into benefits matching with paycheck withholding.",
+          "due-date": "2017-01-02",
+          "complete": false,
+          "type": "Normal",
+          "typeClass": "norm"
+        },{
+          "content": "Return the extra lightbulb to WalMart.",
+          "due-date": "2017-01-02",
+          "complete": false,
+          "type": "Normal",
+          "typeClass": "norm"
+        },{
+          "content": "Return the Gap shirt that was the wrong size.",
+          "due-date": "2017-01-02",
+          "complete": false,
+          "type": "Normal",
+          "typeClass": "norm"
+        }
+      ]
+    },{
+      "heading": "Due later",
+      "tasks": [
+        {
+          "content": "Write second case study based on Act On It.",
+          "due-date": "2017-01-03",
+          "complete": false,
+          "type": "Normal",
+          "typeClass": "norm"
+        },{
+          "content": "Finish design comps for third case study based Folio.",
+          "due-date": "2017-01-04",
+          "complete": false,
+          "type": "Urgent",
+          "typeClass": "urg"
+        },{
+          "content": "Write third case study.",
+          "due-date": "2017-01-05",
+          "complete": false,
+          "type": "Normal",
+          "typeClass": "norm"
+        },{
+          "content": "Build the 'Battle of Five Armies' set with Ethan",
+          "due-date": "2017-01-08",
+          "complete": false,
+          "type": "Backburner",
+          "typeClass": "back"
+        }
+      ]
+    }
+  ]
+}

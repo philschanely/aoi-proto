@@ -1,0 +1,45 @@
+@import url("meyer-reset.css");
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:300,400,500');
+body {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+  color: #424242;
+  font-weight: 300;
+}
+button {
+  border-radius: 25px;
+  height: 50px;
+  background-color: #00e676;
+  border: 1px solid transparent;
+  color: #424242;
+  padding: 0 25px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+h1 {
+  font-size: 3.7em;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #424242;
+  font-weight: 400;
+}
+h2,
+.h2 {
+  font-size: 2.3em;
+  font-weight: 500;
+}
+h3,
+.h3 {
+  font-size: 1.4em;
+  font-weight: 500;
+}
+li,
+p {
+  font-size: 1.4em;
+  line-height: 1.42857143em;
+}
+li li,
+p li,
+li p,
+p p {
+  font-size: 1em;
+}

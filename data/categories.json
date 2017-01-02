@@ -1,0 +1,47 @@
+{
+  "categories": [
+    {
+      "name": "Personal",
+      "projects": [
+        {
+          "name": "Shopping",
+          "id": 1
+        },{
+          "name": "Car Maintenance",
+          "id": 2
+        },{
+          "name": "House Work",
+          "id": 3
+        }
+      ]
+    },{
+      "name": "Grad School",
+      "projects": [
+        {
+          "name": "Thesis",
+          "id": 4
+        },{
+          "name": "Other",
+          "id": 5
+        }
+      ]
+    },{
+      "name": "Teaching",
+      "projects": [
+        {
+          "name": "VCD-2600 Web Design I",
+          "id": 6
+        },{
+          "name": "VCD-3600 Web Design II",
+          "id": 7
+        },{
+          "name": "VCD-3650 Scripting for Interactivity",
+          "id": 8
+        },{
+          "name": "VCD-3700 User Experience",
+          "id": 8
+        }
+      ]
+    }
+  ]
+}

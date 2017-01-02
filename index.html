@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Act On It</title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Act On It</h1>
+    </header>
+    <nav>
+        <p>Skip to tasks</p>
+        <button class="add-category">Add a category</button>
+        <ul>
+            {{#each categories}}
+            <li class="category">
+                <a href="#category/{{id}}">{{name}}</a>
+                <ul class="options">
+                    <li class="add-project"><button data-id="{{id}}">Add project</button></li>
+                    <li class="edit-category"><button data-id="{{id}}">Edit</button></li>
+                    <li class="duplicate-category"><button data-id="{{id}}">Duplicate</button></li>
+                    <li class="delete-category"><button data-id="{{id}}">Delete</button></li>
+                </ul>
+                <ul>
+                    {{#each projects}}
+                    <li class="project">
+                        <a href="#project/{{id}}">{{name}}</a>
+                        <ul class="options">
+                            <li class="add-taske"><button data-id="{{id}}">Add task</button></li>
+                            <li class="edit-project"><button data-id="{{id}}">Edit</button></li>
+                            <li class="duplicate-project"><button data-id="{{id}}">Duplicate</button></li>
+                            <li class="delete-project"><button data-id="{{id}}">Delete</button></li>
+                        </ul>
+                    </li>
+                    {{/each}}
+                </ul>
+            </li>
+            {{/each}}
+        </ul>
+    </nav>
+    <main>
+        {{#each task-groups}}
+        <h2>{{heading}}</h2>
+        <ul>
+            {{#each tasks}}
+            <li>
+                <p>{{content}}</p>
+                <p><b>Due by:</b> {{date due-date}}</p>
+
+                {{#if complete}}
+                <input type="checkbox" value="1" checked />
+                {{else}}
+                <input type="checkbox" value="1" />
+                {{/if}}
+
+            </li>
+            {{/each}}
+        </ul>
+        {{/each}}
+    </main>
+    <aside class="app-options">
+        <div class="option sort-options">
+            <p>Sort order:</p>
+            <ul class="options">
+                <li><button>Sort ascending</button></li>
+                <li><button>Sort descending</button></li>
+            </ul>
+        </div>
+        <div class="option filter-types">
+            <p>Show types:</p>
+            <ul class="options">
+                <li><button>Normal</button></li>
+                <li><button>Urgent</button></li>
+                <li><button>Backburner</button></li>
+            </ul>
+        </div>
+        <div class="option filter-status">
+            <p>Show status:</p>
+            <ul class="options">
+                <li><button>Unfinished</button></li>
+                <li><button>Finished</button></li>
+            </ul>
+        </div>
+        <div class="option filter-status">
+            <p><input type="checkbox" /> Group by deadline</p>
+        </div>
+    </aside>
+    
+    <template id="edit-task">
+        <form action="#task/save/{{id}}/{{parent.id}}">
+            <ul class="basic-options">
+                <li>
+                    <label>Task details:</label>
+                    <textarea name="content">{{content}}</textarea>
+                </li>
+                <li>
+                    <label>Due date:</label>
+                    <input name="due-date" type="date" value="{{date due-date}}" />
+                </li>
+                <li>
+                    <label>Status:</label>
+                    {{#if complete}}
+                    <input type="checkbox" value="1" checked />
+                    {{else}}
+                    <input type="checkbox" value="1" />
+                    {{/if}}
+                </li>    
+            </ul>
+            <div class="other-options">
+                <div class="types">
+                    <p>Type:</p>
+                    <ul>
+                        <li><input type="radio" name="type" /> Normal</li>
+                        <li><input type="radio" name="type" /> Urgent</li>
+                        <li><input type="radio" name="type" /> Backburner</li>
+                    </ul>    
+                </div>
+                <button class="save-task" type="submit">Save</button>
+                <button class="delete-task">Delete task</button>
+            </div>
+        </form>
+    </template>
+    <template id="edit-project">
+        <form action="#project/save/{{id}}/{{parent.id}}">
+            <input type="text" value="{{name}}" />
+            <button class="save-project" type="submit">Save</button>
+        </form>
+    </template>
+    <template id="edit-category">
+        <form action="#category/save/{{id}}/{{parent.id}}">
+            <input type="text" value="{{name}}" />
+            <button class="save-category" type="submit">Save</button>
+        </form>
+    </template>
+    
+    <script src="js/min/vendor-min.js"></script>
+    <script src="js/min/scripts-min.js"></script>
+</body>
+</html>

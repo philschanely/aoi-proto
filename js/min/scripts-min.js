@@ -1,0 +1,2 @@
+$(function(){Handlebars.registerHelper("date",function(a){var e=Date.parse(Handlebars.escapeExpression(a));return e.toString("MMM d, yyyy")}),$.getJSON("data/categories.json",function(a){var e=Handlebars.compile($("nav").html()),n=e(a);$("nav").html(n)}),$.getJSON("data/tasks.json",function(a){var e=Handlebars.compile($("main").html()),n=e(a);$("main").html(n)})});
+//# sourceMappingURL=./scripts-min.js.map
