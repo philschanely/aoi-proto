@@ -37,6 +37,38 @@
 .font-roboto() {
   font-family: 'Roboto', sans-serif;
 }
+.grid-app() {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-areas: "brand options"
+    "nav   tasks";
+  header {
+    grid-area: brand;
+  }
+  nav {
+    grid-area: nav;
+  }
+  aside {
+    grid-area: options;
+  }
+  main {
+    grid-area: tasks
+  }
+}
+.grid-task() {
+  width:220px;
+  height:120px;
+  display:grid;
+  grid-template-columns: 30px auto;
+  grid-template-rows:30px auto;
+  grid-template-areas: "status date"
+    ". content";
+  .status { grid-area: status; }
+  .due-date { grid-area: date; }
+  .content { grid-area: content; }
+}
 
 a {
   color: @color-dkgrey;
@@ -48,7 +80,7 @@ a {
 }
 .app-options {
   background-color: @color-grey;
-  padding:10px; 
+  padding:10px;
   button {
     .btn(40px, @color-grey, white, white);
     &.on {
@@ -70,6 +102,7 @@ body {
   .font-roboto;
   color:@color-dkgrey;
   font-weight:300;
+  .grid-app;
 }
 
 .btn-group {
@@ -211,6 +244,7 @@ nav {
   padding:10px;
   margin:0 10px 10px;
   .md-shadow(2);
+  .grid-task;
   &.task-norm {
     background-color: @color-norm;
   }
@@ -227,4 +261,8 @@ nav {
 
 .task-group-heading {
   margin:20px 10px 5px;
+}
+
+@media screen and (min-width:760px) {
+
 }

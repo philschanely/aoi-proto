@@ -11,6 +11,7 @@
     </header>
 
     <nav>Loading categories and projects...</nav>
+
     <main>Loading tasks...</main>
 
     <aside class="app-options">
@@ -85,13 +86,13 @@
         <ul>
             {{#each tasks}}
             <li class="task task-{{typeClass}}">
-                <p>{{content}}</p>
-                <p><b>Due by:</b> {{date due-date}}</p>
+                <p class="content">{{content}}</p>
+                <p class="due-date"><b>Due by:</b> {{date due-date}}</p>
 
                 {{#if complete}}
-                <input type="checkbox" value="1" checked />
+                <input class="status" type="checkbox" value="1" checked />
                 {{else}}
-                <input type="checkbox" value="1" />
+                <input class="status" type="checkbox" value="1" />
                 {{/if}}
 
             </li>

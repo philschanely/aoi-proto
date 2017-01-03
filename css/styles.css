@@ -43,6 +43,23 @@ body {
   font-family: 'Roboto', sans-serif;
   color: #424242;
   font-weight: 300;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-areas: "brand options" "nav   tasks";
+}
+body header {
+  grid-area: brand;
+}
+body nav {
+  grid-area: nav;
+}
+body aside {
+  grid-area: options;
+}
+body main {
+  grid-area: tasks;
 }
 .btn-group > li button {
   border-radius: 0;
@@ -182,6 +199,21 @@ nav a {
   margin: 0 10px 10px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 220px;
+  height: 120px;
+  display: grid;
+  grid-template-columns: 30px auto;
+  grid-template-rows: 30px auto;
+  grid-template-areas: "status date" ". content";
+}
+.task .status {
+  grid-area: status;
+}
+.task .due-date {
+  grid-area: date;
+}
+.task .content {
+  grid-area: content;
 }
 .task.task-norm {
   background-color: #00e5ff;
