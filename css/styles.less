@@ -216,8 +216,15 @@ a {
   height:60px;
   border-radius:30px;
   box-sizing:border-box;
+  &.expanded {
+    bottom:165px;
+  }
+  @media screen and (min-width:@size-almost-desktop) {
+    &.expanded { bottom: 60px; }
+  }
   @media screen and (min-width:@size-desktop) {
     bottom:15px;
+    &.expanded { bottom: 15px; }
   }
 }
 .app-options {

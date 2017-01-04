@@ -14,7 +14,7 @@
 
     <main id="task-lists">Loading tasks...</main>
 
-    <aside class="app-options">
+    <aside id="app-options" class="app-options">
         <div class="option sort-options">
             <p class="label">Sort order:</p>
             <ul class="options btn-group">
@@ -78,7 +78,7 @@
     </template>
 
     <template id="tasks">
-        <button class="add-task">Add Task</button>
+        <button id="btn-add-task" class="add-task">Add Task</button>
         {{#each task-groups}}
         <div class="task-group">
             <h2 class="task-group-heading">{{heading}}</h2>

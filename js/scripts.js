@@ -34,6 +34,11 @@ $(function(){
             e.preventDefault();
             $("#modal").removeClass("on");
         }
+        if ($target.hasClass("btn-expand")) {
+            e.preventDefault();
+            $("#app-options").toggleClass("expanded");
+            $("#btn-add-task").toggleClass("expanded");
+        }
     });
 
 });

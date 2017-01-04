@@ -41,8 +41,19 @@ a {
   border-radius: 30px;
   box-sizing: border-box;
 }
+.add-task.expanded {
+  bottom: 165px;
+}
+@media screen and (min-width: 680px) {
+  .add-task.expanded {
+    bottom: 60px;
+  }
+}
 @media screen and (min-width: 990px) {
   .add-task {
+    bottom: 15px;
+  }
+  .add-task.expanded {
     bottom: 15px;
   }
 }
