@@ -10,108 +10,109 @@
         <h1>Act On It</h1>
     </header>
 
-    <nav>Loading categories and projects...</nav>
+    <nav id="app-nav">Loading categories and projects...</nav>
 
-    <main>Loading tasks...</main>
+    <main id="task-lists">Loading tasks...</main>
 
     <aside class="app-options">
         <div class="option sort-options">
             <p class="label">Sort order:</p>
             <ul class="options btn-group">
-                <li><button class="on">Sort ascending</button></li>
-                <li><button>Sort descending</button></li>
+                <li><button class="on sort-asc">Sort ascending</button></li>
+                <li><button class="sort-desc">Sort descending</button></li>
             </ul>
         </div>
         <div class="option filter-types">
             <p class="label">Show types:</p>
             <ul class="options">
-                <li class="type-norm"><button class="on">Normal</button></li>
-                <li class="type-urg"><button>Urgent</button></li>
-                <li class="type-back"><button>Backburner</button></li>
+                <li><button class="task-type-norm on">Normal</button></li>
+                <li><button class="task-type-urg">Urgent</button></li>
+                <li><button class="task-type-back">Backburner</button></li>
             </ul>
         </div>
-        <div class="option filter-status">
+        <div class="option filter-status secondary">
             <p class="label">Show status:</p>
             <ul class="options btn-group">
                 <li><button class="on">Unfinished</button></li>
                 <li><button>Finished</button></li>
             </ul>
         </div>
-        <div class="option filter-status">
+        <div class="option grouping secondary">
             <p class="label"><input type="checkbox" /> Group by deadline</p>
         </div>
-        <div class="account">
+        <div class="account secondary">
             <a href="#">
-                <img class="img-profile" src="http://placehold.it/100x100" />
+                <img class="img-profile" src="images/profile-img.png" />
                 <span class="label accessible">Account options</span>
             </a>
+        </div>
+        <button class="btn-expand">Expand/contract</button>
+    </aside>
+
+    <aside id="modal" class="modal">
+        <div class="modal-content">
+            Testing...
         </div>
     </aside>
 
     <template id="nav">
-        <p class="accessible"><a href="#tasks">Skip to tasks</a></p>
-        <button class="add-category">Add a category</button>
-        <ul class="categories">
-            {{#each categories}}
-            <li class="category">
-                <div class="label">
-                    <a href="#category/{{id}}">{{name}}</a>
-                    <ul class="options">
-                        <li class="add-project"><button data-id="{{id}}">Add project</button></li>
-                        <li class="edit-category"><button data-id="{{id}}">Edit</button></li>
-                        <li class="duplicate-category"><button data-id="{{id}}">Duplicate</button></li>
-                        <li class="delete-category"><button data-id="{{id}}">Delete</button></li>
+        <a class="mobile-nav-link" href="#category-list">View Categories</a>
+        <div id="category-list" class="category-list">
+            <p class="accessible"><a href="#task-lists">Skip to tasks</a></p>
+            <button class="add-category">Add a category</button>
+            <ul class="categories">
+                {{#each categories}}
+                <li class="category">
+                    <a class="label" href="#category/{{id}}">{{name}}</a>
+                    <ul class="projects">
+                        {{#each projects}}
+                        <li class="project">
+                            <a href="#project/{{id}}">{{name}}</a>
+                        </li>
+                        {{/each}}
                     </ul>
-                </div>
-                <ul class="projects">
-                    {{#each projects}}
-                    <li class="project">
-                        <a href="#project/{{id}}">{{name}}</a>
-                        <ul class="options">
-                            <li class="add-taske"><button data-id="{{id}}">Add task</button></li>
-                            <li class="edit-project"><button data-id="{{id}}">Edit</button></li>
-                            <li class="duplicate-project"><button data-id="{{id}}">Duplicate</button></li>
-                            <li class="delete-project"><button data-id="{{id}}">Delete</button></li>
-                        </ul>
-                    </li>
-                    {{/each}}
-                </ul>
-            </li>
-            {{/each}}
-        </ul>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
     </template>
+
     <template id="tasks">
+        <button class="add-task">Add Task</button>
         {{#each task-groups}}
-        <h2 class="task-group-heading">{{heading}}</h2>
-        <ul>
-            {{#each tasks}}
-            <li class="task task-{{typeClass}}">
-                <p class="content">{{content}}</p>
-                <p class="due-date"><b>Due by:</b> {{date due-date}}</p>
+        <div class="task-group">
+            <h2 class="task-group-heading">{{heading}}</h2>
+            <ul class="task-list">
+                {{#each tasks}}
+                <li class="task task-type-{{typeClass}}">
+                    <p class="content">{{content}}</p>
+                    <p class="due-date"><b>Due by:</b> {{date due-date}}</p>
 
-                {{#if complete}}
-                <input class="status" type="checkbox" value="1" checked />
-                {{else}}
-                <input class="status" type="checkbox" value="1" />
-                {{/if}}
+                    {{#if complete}}
+                    <input class="status" type="checkbox" value="1" checked />
+                    {{else}}
+                    <input class="status" type="checkbox" value="1" />
+                    {{/if}}
 
-            </li>
-            {{/each}}
-        </ul>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
         {{/each}}
     </template>
+
     <template id="edit-task">
-        <form action="#task/save/{{id}}/{{parent.id}}">
-            <ul class="basic-options">
-                <li>
+        <form class="task-editor" action="#task/save/{{id}}/{{parent.id}}">
+            <ul class="basic-options task-type-{{typeClass}}">
+                <li class="content">
                     <label>Task details:</label>
                     <textarea name="content">{{content}}</textarea>
                 </li>
-                <li>
+                <li class="date-due">
                     <label>Due date:</label>
-                    <input name="due-date" type="date" value="{{date due-date}}" />
+                    <input name="due-date" type="text" value="{{date due-date}}" />
                 </li>
-                <li>
+                <li class="status">
                     <label>Status:</label>
                     {{#if complete}}
                     <input type="checkbox" value="1" checked />
@@ -122,11 +123,11 @@
             </ul>
             <div class="other-options">
                 <div class="types">
-                    <p>Type:</p>
-                    <ul>
-                        <li class="type-norm on"><input type="radio" name="type" /> Normal</li>
-                        <li class="type-urg"><input type="radio" name="type" /> Urgent</li>
-                        <li class="type-back"><input type="radio" name="type" /> Backburner</li>
+                    <p class="label">Type:</p>
+                    <ul class="options">
+                        <li class="task-type-norm on"><input type="radio" name="type" /> Normal</li>
+                        <li class="task-type-urg"><input type="radio" name="type" /> Urgent</li>
+                        <li class="task-type-back"><input type="radio" name="type" /> Backburner</li>
                     </ul>    
                 </div>
                 <button class="save-task" type="submit">Save</button>
@@ -134,17 +135,37 @@
             </div>
         </form>
     </template>
+
     <template id="edit-project">
         <form action="#project/save/{{id}}/{{parent.id}}">
             <input type="text" value="{{name}}" />
             <button class="save-project" type="submit">Save</button>
         </form>
     </template>
+
     <template id="edit-category">
         <form action="#category/save/{{id}}/{{parent.id}}">
             <input type="text" value="{{name}}" />
             <button class="save-category" type="submit">Save</button>
         </form>
+    </template>
+
+    <template id="project-options">
+        <ul class="options">
+            <li class="add-task"><button data-id="{{id}}">Add task</button></li>
+            <li class="edit-project"><button data-id="{{id}}">Edit</button></li>
+            <li class="duplicate-project"><button data-id="{{id}}">Duplicate</button></li>
+            <li class="delete-project"><button data-id="{{id}}">Delete</button></li>
+        </ul>
+    </template>
+
+    <template id="category-options">
+        <ul class="options">
+            <li class="add-project"><button data-id="{{id}}">Add project</button></li>
+            <li class="edit-category"><button data-id="{{id}}">Edit</button></li>
+            <li class="duplicate-category"><button data-id="{{id}}">Duplicate</button></li>
+            <li class="delete-category"><button data-id="{{id}}">Delete</button></li>
+        </ul>
     </template>
     
     <script src="js/min/vendor-min.js"></script>
