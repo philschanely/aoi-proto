@@ -10,18 +10,6 @@
   }
 }
 
-.task-type-norm {
-  background-color: $color-norm;
-}
-
-.task-type-urg {
-  background-color: $color-urg;
-}
-
-.task-type-back {
-  background-color: $color-back;
-}
-
 .task-editor {
   width: 100%;
 
@@ -52,7 +40,7 @@
     padding: 10px;
     height: 80px;
     box-sizing: border-box;
-    background-color: $color-grey;
+    background-color: $color-grey-700;
 
     .delete-task {
       @include img-replacement(40px);
@@ -71,7 +59,7 @@
     .label {
       margin-bottom: 5px;
       text-align: center;
-      color: white;
+      color: $color-white;
     }
 
     .options {

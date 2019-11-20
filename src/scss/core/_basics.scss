@@ -1,5 +1,5 @@
 a {
-  color: $color-dkgrey;
+  color: $color-grey-300;
 }
 
 b {
@@ -11,7 +11,7 @@ body {
 
   @include grid-app;
 
-  color: $color-dkgrey;
+  color: $color-grey-300;
 }
 
 h1 {
@@ -30,7 +30,7 @@ h1 {
       float: left;
       position: relative;
       top: -20px;
-      background-color: white;
+      background-color: $color-white;
     }
   }
 }

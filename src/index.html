@@ -16,38 +16,40 @@
     <main id="task-lists">Loading tasks...</main>
 
     <aside id="app-options" class="app-options">
-        <div class="option sort-options">
-            <p class="label">Sort order:</p>
+        <div class="app-options__sorting app-option">
+            <p class="app-option__label">Sort order:</p>
             <ul class="options btn-group">
                 <li><button class="on sort-asc">Sort ascending</button></li>
                 <li><button class="sort-desc">Sort descending</button></li>
             </ul>
         </div>
-        <div class="option filter-types">
-            <p class="label">Show types:</p>
+        <div class="app-options__filter-types app-option">
+            <p class="app-option__label">Show types:</p>
             <ul class="options">
                 <li><button class="task-type-norm on">Normal</button></li>
                 <li><button class="task-type-urg">Urgent</button></li>
                 <li><button class="task-type-back">Backburner</button></li>
             </ul>
         </div>
-        <div class="option filter-status secondary">
-            <p class="label">Show status:</p>
+        <div class="app-options__filter-status app-option app-option--secondary">
+            <p class="app-option__label">Show status:</p>
             <ul class="options btn-group">
                 <li><button class="on">Unfinished</button></li>
                 <li><button>Finished</button></li>
             </ul>
         </div>
-        <div class="option grouping secondary">
-            <p class="label"><input type="checkbox" /> Group by deadline</p>
+        <div class="app-options__grouping app-option app-option--secondary">
+            <p class="app-option__label">
+              <input type="checkbox" /> Group by deadline
+            </p>
         </div>
-        <div class="account secondary">
+        <div class="app-options__account app-option app-option--secondary">
             <a href="#">
                 <img class="img-profile" src="images/profile-img.png" />
                 <span class="label accessible">Account options</span>
             </a>
         </div>
-        <button class="btn-expand">Expand/contract</button>
+        <button class="app-options__expand">Expand/contract</button>
     </aside>
 
     <aside id="modal" class="modal">

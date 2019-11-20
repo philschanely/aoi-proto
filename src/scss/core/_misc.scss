@@ -25,7 +25,7 @@
     bottom: 165px;
   }
 
-  @media screen and (min-width: $size-almost-desktop) {
+  @media screen and (min-width: $size-tablet) {
     &.expanded {
       bottom: 60px;
     }

@@ -2,6 +2,7 @@
 %type-base {
   font-family: $font-base;
   font-size: font-size(14);
+  line-height: font-size(20);
   font-weight: 300;
 }
 
@@ -12,24 +13,28 @@
 
   @media screen and (min-width: $size-desktop) {
     font-size: font-size(37);
+    line-height: font-size(40);
   }
 }
 
 %type-display-2 {
   font-family: $font-base;
   font-size: font-size(21);
+  line-height: font-size(30);
   font-weight: 500;
 }
 
 %type-display-2-alt {
   font-family: $font-display;
   font-size: font-size(21);
+  line-height: font-size(30);
   font-weight: 400;
 }
 
 %type-display-3 {
   font-family: $font-base;
   font-size: font-size(14);
+  line-height: font-size(20);
   font-weight: 300;
 }
 
@@ -40,7 +45,7 @@ h1 {
   color: $color-norm;
 
   @media screen and (min-width: $size-desktop) {
-    color: $color-dkgrey;
+    color: $color-grey-300;
   }
 }
 

@@ -1,7 +1,7 @@
 nav {
   box-sizing: border-box;
-  color: white;
-  background-color: $color-dkgrey;
+  color: $color-white;
+  background-color: $color-grey-300;
 
   &:hover {
     .category-list {
@@ -10,7 +10,7 @@ nav {
   }
 
   a {
-    color: white;
+    color: $color-white;
     text-decoration: none;
   }
 
@@ -21,7 +21,7 @@ nav {
     position: absolute;
     left: 0;
     top: 40px;
-    background-color: $color-dkgrey;
+    background-color: $color-grey-300;
   }
 
   .mobile-nav-link {

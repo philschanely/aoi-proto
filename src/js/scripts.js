@@ -34,7 +34,7 @@ $(function(){
             e.preventDefault();
             $("#modal").removeClass("on");
         }
-        if ($target.hasClass("btn-expand")) {
+        if ($target.hasClass("app-options__expand")) {
             e.preventDefault();
             $("#app-options").toggleClass("expanded");
             $("#btn-add-task").toggleClass("expanded");

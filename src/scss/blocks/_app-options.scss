@@ -1,109 +1,171 @@
 .app-options {
-  @include grid-option-bar;
-
   padding: 5px 10px;
+  display: grid;
+  grid-gap: 10px;
+  justify-content: space-between;
+  grid-template-columns: auto auto auto auto;
+  grid-template-areas:
+    "sort     types    types   expand"
+    "status   status   account account"
+    "grouping grouping account account";
   position: relative;
-  background-color: $color-grey;
+  background-color: $color-grey-700;
 
-  &.expanded {
-    .btn-expand {
-      background-image: url("../images/icon-up-lt.png");
-    }
-
-    .secondary {
-      display: block;
-    }
+  @media screen and (min-width: 500px) {
+    grid-template-columns: auto auto auto;
+    grid-template-areas:
+      "sort     types    expand"
+      "status   grouping account";
   }
 
-  .account {
-    text-align: right;
-
-    img {
-      width: 100px;
-      height: 100px;
-    }
+  @media screen and (min-width: $size-tablet) {
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-areas: "account sort types status grouping";
   }
 
-  button {
-    @include btn(40px, $color-grey, white, white);
-
-    &.on {
-      color: $color-grey;
-      background-color: white;
-    }
-  }
-
-  .btn-expand {
-    @include btn-off;
-    @include img-replacement(60px);
-
-    background-image: url("/images/icon-down-lt.png");
-  }
-
-  .grouping {
-    p {
-      margin: 10px 0;
-
-      @media screen and (min-width: $size-almost-desktop) {
-        margin-top: 30px;
-      }
-    }
-  }
-
-  .option {
-    .label {
-      margin-bottom: 5px;
-      color: white;
-      text-align: left;
-    }
+  @media screen and (min-width: $size-desktop) {
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-areas: "sort types status grouping account";
   }
 
   .options {
     margin: 0 auto;
     display: flex;
   }
+}
 
-  .secondary {
+.app-options__account {
+  grid-area: account;
+  text-align: right;
+
+  img {
+    width: 100px;
+    height: 100px;
+
+    @media screen and (min-width: $size-tablet) {
+      margin-top: 5px;
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
+
+.app-options__filter-types {
+  grid-area: types;
+
+  button {
+    @include img-replacement(30px);
+
+    padding: 0;
+    height: 30px;
+    border: none;
+    opacity: .3;
+
+    &.on {
+      opacity: 1;
+    }
+  }
+
+  .options {
+    margin-top: 10px;
+
+    li {
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.app-options__filter-status {
+  grid-area: status;
+
+  button {
+    @include btn(40px, $color-grey-700, $color-white, $color-white);
+
+    &.on {
+      color: $color-grey-700;
+      background-color: $color-white;
+    }
+  }
+}
+
+.app-options__grouping {
+  grid-area: grouping;
+
+  p {
+    margin: 10px 0;
+
+    @media screen and (min-width: $size-tablet) {
+      margin-top: 30px;
+    }
+  }
+}
+
+.app-options__sorting {
+  grid-area: sort;
+
+  button {
+    @include btn(40px, $color-grey-700, $color-white, $color-white);
+    @include img-replacement(60px);
+
+    &.on {
+      color: $color-grey-700;
+      background-color: $color-white;
+    }
+
+    &.sort-asc {
+      background-image: url("/images/icon-up-lt.png");
+
+      &.on {
+        background-image: url("/images/icon-up-dk.png");
+      }
+    }
+
+    &.sort-desc {
+      background-image: url("/images/icon-down-lt.png");
+
+      &.on {
+        background-image: url("/images/icon-down-dk.png");
+      }
+    }
+  }
+}
+
+.app-options__expand {
+  @include btn-off;
+  @include img-replacement(60px);
+
+  grid-area: expand;
+  background-image: url("/images/icon-down-lt.png");
+
+  .expanded & {
+    background-image: url("/images/icon-up-lt.png");
+  }
+
+  @media screen and (min-width: $size-tablet) {
     display: none;
   }
+}
 
-  .sort-options {
-    button {
-      @include img-replacement(60px);
+.app-option {} /* stylelint-disable-line */
 
-      &.sort-asc {
-        background-image: url("../images/icon-up-lt.png");
+.app-option--secondary {
+  display: none;
 
-        &.on {
-          background-image: url("../images/icon-up-dk.png");
-        }
-      }
-
-      &.sort-desc {
-        background-image: url("../images/icon-down-lt.png");
-
-        &.on {
-          background-image: url("../images/icon-down-dk.png");
-        }
-      }
-    }
+  .expanded & {
+    display: block;
   }
 
-  @media screen and (min-width: $size-almost-desktop) {
-    .secondary {
-      display: block;
-    }
-
-    .btn-expand {
-      display: none;
-    }
-
-    .account {
-      img {
-        margin-top: 5px;
-        width: 60px;
-        height: 60px;
-      }
-    }
+  @media screen and (min-width: $size-tablet) {
+    display: block;
   }
+}
+
+.app-option__label {
+  margin-bottom: 5px;
+  color: $color-white;
+  text-align: left;
 }
