@@ -1,0 +1,45 @@
+.accessible {
+  height: 0;
+  display: block;
+  overflow: hidden;
+}
+
+.add-category {
+  margin: 10px;
+  display: block;
+}
+
+.add-task {
+  @include img-replacement(60px);
+
+  height: 60px;
+  position: absolute;
+  z-index: 2;
+  right: 15px;
+  bottom: 60px;
+  box-sizing: border-box;
+  background-image: url("/images/icon-add-lg-dk.png");
+  border-radius: 30px;
+
+  &.expanded {
+    bottom: 165px;
+  }
+
+  @media screen and (min-width: $size-almost-desktop) {
+    &.expanded {
+      bottom: 60px;
+    }
+  }
+
+  @media screen and (min-width: $size-desktop) {
+    bottom: 15px;
+
+    &.expanded {
+      bottom: 15px;
+    }
+  }
+}
+
+.img-profile {
+  border-radius: 50%;
+}

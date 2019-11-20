@@ -1,0 +1,44 @@
+a {
+  color: $color-dkgrey;
+}
+
+b {
+  font-weight: 500;
+}
+
+body {
+  @extend %type-base;
+
+  @include grid-app;
+
+  color: $color-dkgrey;
+}
+
+h1 {
+  padding: 10px 0 0;
+
+  @media screen and (min-width: $size-desktop) {
+    margin: 10px;
+    padding-top: 20px;
+
+    &::before {
+      content: "";
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+      display: block;
+      float: left;
+      position: relative;
+      top: -20px;
+      background-color: white;
+    }
+  }
+}
+
+html {
+  height: 100%;
+}
+
+main {
+  overflow: auto;
+}

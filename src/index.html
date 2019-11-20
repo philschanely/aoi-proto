@@ -3,7 +3,8 @@
 <head>
     <title>Act On It</title>
     <meta charset="utf-8" />
-    <link type="text/css" rel="stylesheet" href="css/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="styles.css" />
 </head>
 <body>
     <header>
@@ -119,7 +120,7 @@
                     {{else}}
                     <input type="checkbox" value="1" />
                     {{/if}}
-                </li>    
+                </li>
             </ul>
             <div class="other-options">
                 <div class="types">
@@ -128,7 +129,7 @@
                         <li class="task-type-norm on"><input type="radio" name="type" /> Normal</li>
                         <li class="task-type-urg"><input type="radio" name="type" /> Urgent</li>
                         <li class="task-type-back"><input type="radio" name="type" /> Backburner</li>
-                    </ul>    
+                    </ul>
                 </div>
                 <button class="save-task" type="submit">Save</button>
                 <button class="delete-task">Delete task</button>
@@ -167,8 +168,8 @@
             <li class="delete-category"><button data-id="{{id}}">Delete</button></li>
         </ul>
     </template>
-    
+
     <script src="js/min/vendor-min.js"></script>
-    <script src="js/min/scripts-min.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>

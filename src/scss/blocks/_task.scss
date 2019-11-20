@@ -1,0 +1,121 @@
+.task {
+  @include grid-task;
+  @include md-shadow(2);
+
+  margin: 0 10px 10px 0;
+  width: 300px;
+
+  &:hover {
+    @include md-shadow(4);
+  }
+}
+
+.task-type-norm {
+  background-color: $color-norm;
+}
+
+.task-type-urg {
+  background-color: $color-urg;
+}
+
+.task-type-back {
+  background-color: $color-back;
+}
+
+.task-editor {
+  width: 100%;
+
+  .basic-options {
+    @include grid-task;
+
+    height: 290px;
+
+    label {
+      display: none;
+    }
+  }
+
+  .content textarea {
+    @include input-styles;
+
+    margin-top: 10px;
+    height: 120px;
+  }
+
+  .date-due input {
+    @include input-styles;
+  }
+
+  .other-options {
+    @include grid-task-tray;
+
+    padding: 10px;
+    height: 80px;
+    box-sizing: border-box;
+    background-color: $color-grey;
+
+    .delete-task {
+      @include img-replacement(40px);
+
+      margin-top: 10px;
+      background-image: url("../images/icon-close-dk.png");
+      background-color: $color-red;
+    }
+
+    .save-task {
+      margin-top: 10px;
+    }
+  }
+
+  .types {
+    .label {
+      margin-bottom: 5px;
+      text-align: center;
+      color: white;
+    }
+
+    .options {
+      display: flex;
+
+      li {
+        @include md-shadow();
+
+        margin-right: 10px;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        text-indent: -9999px;
+        border-radius: 15px;
+        opacity: .5;
+
+        &.on {
+          opacity: 1;
+        }
+
+        &:hover {
+          @include md-shadow(4);
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        input {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    width: 600px;
+  }
+}
+
+.task-group-heading {
+  margin: 20px 10px 5px;
+}
+
+.task-list {
+  @include grid-task-list;
+}

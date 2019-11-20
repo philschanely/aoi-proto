@@ -1,0 +1,109 @@
+.app-options {
+  @include grid-option-bar;
+
+  padding: 5px 10px;
+  position: relative;
+  background-color: $color-grey;
+
+  &.expanded {
+    .btn-expand {
+      background-image: url("../images/icon-up-lt.png");
+    }
+
+    .secondary {
+      display: block;
+    }
+  }
+
+  .account {
+    text-align: right;
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  button {
+    @include btn(40px, $color-grey, white, white);
+
+    &.on {
+      color: $color-grey;
+      background-color: white;
+    }
+  }
+
+  .btn-expand {
+    @include btn-off;
+    @include img-replacement(60px);
+
+    background-image: url("/images/icon-down-lt.png");
+  }
+
+  .grouping {
+    p {
+      margin: 10px 0;
+
+      @media screen and (min-width: $size-almost-desktop) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  .option {
+    .label {
+      margin-bottom: 5px;
+      color: white;
+      text-align: left;
+    }
+  }
+
+  .options {
+    margin: 0 auto;
+    display: flex;
+  }
+
+  .secondary {
+    display: none;
+  }
+
+  .sort-options {
+    button {
+      @include img-replacement(60px);
+
+      &.sort-asc {
+        background-image: url("../images/icon-up-lt.png");
+
+        &.on {
+          background-image: url("../images/icon-up-dk.png");
+        }
+      }
+
+      &.sort-desc {
+        background-image: url("../images/icon-down-lt.png");
+
+        &.on {
+          background-image: url("../images/icon-down-dk.png");
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $size-almost-desktop) {
+    .secondary {
+      display: block;
+    }
+
+    .btn-expand {
+      display: none;
+    }
+
+    .account {
+      img {
+        margin-top: 5px;
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+}

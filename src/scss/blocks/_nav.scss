@@ -1,0 +1,50 @@
+nav {
+  box-sizing: border-box;
+  color: white;
+  background-color: $color-dkgrey;
+
+  &:hover {
+    .category-list {
+      display: block;
+    }
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .category-list {
+    padding: 10px 0;
+    width: 100%;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    background-color: $color-dkgrey;
+  }
+
+  .mobile-nav-link {
+    @include img-replacement(60px);
+
+    height: 40px;
+    display: block;
+    background-image: url("/images/icon-mobile-nav.png");
+  }
+
+  @media screen and (min-width: $size-desktop) {
+    padding: 10px;
+
+    .mobile-nav-link {
+      display: none;
+    }
+
+    .category-list {
+      padding-top: 0;
+      width: auto;
+      display: block;
+      position: static;
+      background-color: transparent;
+    }
+  }
+}

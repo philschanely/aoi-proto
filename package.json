@@ -5,8 +5,9 @@
   "main": "src/index.html",
   "scripts": {
     "sync": "browser-sync start -s \"src\" -f \"src/**/*.*\"",
-    "sass": "node-sass -w --include-path='src/sass' --source-map=true src/style.scss src/style.css",
-    "start": "npm-run-all -p sync sass"
+    "sass": "node-sass -w --include-path='src/scss' --source-map=true src/styles.scss src/styles.css",
+    "start": "npm-run-all -p sync sass",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -19,8 +20,12 @@
   },
   "homepage": "https://github.com/philschanely/aoi-proto#readme",
   "devDependencies": {
-    "browser-sync": "^2.25.0",
-    "node-sass": "^4.9.3",
-    "npm-run-all": "^4.1.3"
+    "browser-sync": "^2.26.7",
+    "node-sass": "^4.13.0",
+    "npm-run-all": "^4.1.5",
+    "stylelint": "^12.0.0",
+    "stylelint-config-narwin": "^2.1.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-scss": "^3.12.1"
   }
 }

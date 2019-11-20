@@ -1,0 +1,18 @@
+.modal {
+  display: none;
+
+  &.on {
+    @include grid-modal;
+
+    grid-column: left/right;
+    grid-row: top/bottom;
+    z-index: 10;
+    background-color: fadeout(black, 30%);
+  }
+
+  .modal-content {
+    @include md-shadow(3);
+
+    background-color: white;
+  }
+}
