@@ -27,26 +27,22 @@
     grid-template-columns: auto auto auto auto auto;
     grid-template-areas: "sort types status grouping account";
   }
-
-  .options {
-    margin: 0 auto;
-    display: flex;
-  }
 }
 
 .app-options__account {
   grid-area: account;
   text-align: right;
+}
 
-  img {
-    width: 100px;
-    height: 100px;
+.app-options__account__avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 
-    @media screen and (min-width: $size-tablet) {
-      margin-top: 5px;
-      width: 60px;
-      height: 60px;
-    }
+  @media screen and (min-width: $size-tablet) {
+    margin-top: 5px;
+    width: 60px;
+    height: 60px;
   }
 }
 
@@ -65,16 +61,17 @@
       opacity: 1;
     }
   }
+}
 
-  .options {
+.app-option__items {
+  margin: 0 auto;
+  display: flex;
+
+  .app-options__filter-types & {
     margin-top: 10px;
 
-    li {
+    li:not(:last-child) {
       margin-right: 10px;
-
-      &:last-child {
-        margin-right: 0;
-      }
     }
   }
 }

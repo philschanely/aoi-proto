@@ -7,3 +7,9 @@ This is a QIP prototype for "Act On It," a simple to do app. It currently implem
 Work is under way to convert it to a React App using mock data.
 
 [View staged site &raquo;]()
+
+
+## TODO:
+
+- [ ] Add feedback elements
+- [ ] Add entry pages

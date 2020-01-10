@@ -1,16 +1,15 @@
-.category {
-  .label {
-    @extend %type-display-2-alt;
+// TODO: Recover category options panel
+.category__options {
+  display: none;
+}
 
-    padding: 5px 0 5px 10px;
-    margin: 15px 0 0;
+.category__label {
+  @extend %type-display-2-alt;
 
-    &:hover {
-      background-color: $color-grey-500;
-    }
-  }
+  padding: 5px 0 5px 10px;
+  margin: 15px 0 0;
 
-  .options {
-    display: none;
+  &:hover {
+    background-color: $color-grey-500;
   }
 }

@@ -9,8 +9,6 @@ b {
 body {
   @extend %type-base;
 
-  @include grid-app;
-
   color: $color-grey-300;
 }
 
@@ -41,4 +39,8 @@ html {
 
 main {
   overflow: auto;
+}
+
+.page {
+  @include grid-app;
 }
